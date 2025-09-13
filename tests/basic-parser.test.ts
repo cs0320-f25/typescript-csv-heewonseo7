@@ -5,7 +5,7 @@ const PEOPLE_CSV_PATH = path.join(__dirname, "../data/people.csv");
 
 test("parseCSV yields arrays", async () => {
   const results = await parseCSV(PEOPLE_CSV_PATH)
-  
+
   expect(results).toHaveLength(5);
   expect(results[0]).toEqual(["name", "age"]);
   expect(results[1]).toEqual(["Alice", "23"]);
@@ -16,7 +16,48 @@ test("parseCSV yields arrays", async () => {
 
 test("parseCSV yields only arrays", async () => {
   const results = await parseCSV(PEOPLE_CSV_PATH)
-  for(const row of results) {
+  for (const row of results) {
     expect(Array.isArray(row)).toBe(true);
   }
+});
+
+test("parses empty field", async () => {
+  const csv = "Alice, ,Bob";
+  const result = parseCSV(csv);
+  expect(result).toEqual([["Alice", "", "Bob"]]);
+});
+
+test("parses quoted field", () => {
+  const csv = '"Alice","Bob","Charlie"';
+  const result = parseCSV(csv);
+  expect(result).toEqual([["Alice", "Bob", "Charlie"]]);
+});
+
+test("parses commas in field", () => {
+  const csv = '"Alice","Bob, Jr.","Charlie"';
+  const result = parseCSV(csv);
+  expect(result).toEqual([["Alice", "Bob, Jr.", "Charlie"]]);
+});
+
+test("parses rows with different column counts", () => {
+  const csv = "name,age,city\nAlice,23";
+  const result = parseCSV(csv);
+  expect(result).toEqual([
+    ["name", "age", "city"],
+    ["Alice", "23"],
+  ]);
+});
+
+test("parses newlines inside quotes", () => {
+  const csv = `"Alice", "Bob\nSmith","Charlie"`;
+  const result = parseCSV(csv);
+  expect(result).toEqual([
+    ["Alice", "Bob\nSmith", "Charlie"],
+  ]);
+});
+
+test("parses trailing commas", () => {
+  const csv = "Alice,Bob,Charlie,";
+  const result = parseCSV(csv);
+  expect(result).toEqual([["Alice", "Bob", "Charlie", ""]]);
 });
