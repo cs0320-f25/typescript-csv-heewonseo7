@@ -63,13 +63,16 @@
 
     At first, my ideas focused on keeping the parser flexible by supporting structured outputs, handling whitespace cleanly, and adding some basic error checking. After using the LLM, I got more concrete suggestions, like supporting different delimiters, handling various line endings, and adding stronger validation through schemas. The second prompt gave me more specific advice, including example code for error handling and structured data.
 
-### Design Choices:
-#### Errors/Bugs: None
-#### Tests: 
+### Design Choices: I separated the schemas into their own file to help modularize the files a bit keeping things more organized.
+
+#### Errors/Bugs: Most of the tests are failing but I'm pretty sure that's supposed to happen right now since parser isn't really implemented?
+
+#### Tests: Tested a variety of different cases that could occur such as testing different types of schemas and parser behavior.
+
 #### How To…
 
 #### Team members and contributions (include cs logins): Heewon Seo (hseo25)
 
-#### Collaborators (cslogins of anyone you worked with on this project and/or generative AI): Chat GPT
-#### Total estimated time it took to complete project: 1 hr
+#### Collaborators (cslogins of anyone you worked with on this project and/or generative AI): Chat GPT used to prompt ideas and compare enhancements to my own.
+#### Total estimated time it took to complete project: 2 hr
 #### Link to GitHub Repo: 
