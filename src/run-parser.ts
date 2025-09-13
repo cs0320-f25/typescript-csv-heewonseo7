@@ -5,7 +5,7 @@ import { PersonRowSchema } from "./schema"; // import schema
   Example of how to run the parser outside of a test suite.
 */
 
-const DATA_FILE = "./data/people.csv"; // update with your actual file name
+const DATA_FILE = "./data/people.csv";
 
 async function main() {
   try {
