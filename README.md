@@ -64,8 +64,8 @@
     At first, my ideas focused on keeping the parser flexible by supporting structured outputs, handling whitespace cleanly, and adding some basic error checking. After using the LLM, I got more concrete suggestions, like supporting different delimiters, handling various line endings, and adding stronger validation through schemas. The second prompt gave me more specific advice, including example code for error handling and structured data.
 
 ### Design Choices:
-#### Errors/Bugs:
-#### Tests:
+#### Errors/Bugs: None
+#### Tests: 
 #### How To…
 
 #### Team members and contributions (include cs logins): Heewon Seo (hseo25)

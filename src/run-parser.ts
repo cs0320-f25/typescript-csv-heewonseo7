@@ -1,4 +1,5 @@
 import { parseCSV } from "./basic-parser";
+import { PersonRowSchema } from "./schema"; // import schema
 
 /*
   Example of how to run the parser outside of a test suite.
@@ -7,15 +8,19 @@ import { parseCSV } from "./basic-parser";
 const DATA_FILE = "./data/people.csv"; // update with your actual file name
 
 async function main() {
-  // Because the parseCSV function needs to "await" data, we need to do the same here.
-  const results = await parseCSV(DATA_FILE)
+  try {
+    // Because the parseCSV function is async, we need to use await here as well.
+    const results = await parseCSV(DATA_FILE, PersonRowSchema);
 
-  // Notice the difference between "of" and "in". One iterates over the entries, 
-  // another iterates over the indexes only.
-  for(const record of results)
-    console.log(record)
-  for(const record in results)
-    console.log(record)
+    console.log("Parsed CSV data:");
+    // slice(1) to skip the header row
+    for (const record of results.slice(1)) {
+      console.log(record);
+    }
+  } catch (err) {
+    // Runs if schema validation fails on any row
+    console.error("Error parsing CSV:", err);
+  }
 }
 
 main();

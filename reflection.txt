@@ -1,0 +1,27 @@
+1. Correctness:
+
+A correct CSV parser should accurately read and split data into rows
+and columns, properly handling commas, quotes, empty fields, and different
+line endings. It should return data in a consistent format, and when a schema
+is provided, validate and transform each row while clearly reporting errors
+for invalid data. If no schema is given, it should fall back to returning to some
+sort of default.
+
+2. Random, On-Demand Generation:
+
+Randomly generated CSV data can be used to test a wide range of edge cases,
+such as rows with empty fields, extra spaces, quotes, or unusual characters,
+without having to manually create each scenario. This helps ensure the parser 
+works correctly under unpredictable and varied inputs, making the tests more robust.
+It can also uncover hidden bugs by simulating real-world data irregularities that wouldn’t
+be caught otherwise.
+
+3. Overall experience, Bugs encountered and resolved:
+
+This sprint was different from my past programming assignments because it
+emphasized planning and understanding the problem first, especially through
+Task B, before writing any code. I’ve never done this kind of structured
+preparation before, and it helped me think more clearly about the design and
+requirements of the parser. I didn’t encounter any bugs while working on this
+sprint, which I think is because I took the time to plan ahead and carefully
+follow the instructions before jumping into implementation.
