@@ -75,4 +75,4 @@
 
 #### Collaborators (cslogins of anyone you worked with on this project and/or generative AI): Chat GPT used to prompt ideas and compare enhancements to my own.
 #### Total estimated time it took to complete project: 2 hr
-#### Link to GitHub Repo: 
+#### Link to GitHub Repo: https://github.com/cs0320-f25/typescript-csv-heewonseo7/tree/main
